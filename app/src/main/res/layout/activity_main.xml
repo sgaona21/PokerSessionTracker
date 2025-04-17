@@ -22,22 +22,21 @@
         android:id="@+id/newSessionButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/newSessionButton"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="@string/newSessionButton" />
 
     <Button
         android:id="@+id/loggedSessionsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/loggedSessionsButton"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/statisticsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/statisticsButton"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="20dp"/>
 
     </LinearLayout>
 
