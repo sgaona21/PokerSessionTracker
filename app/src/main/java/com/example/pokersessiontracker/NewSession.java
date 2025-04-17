@@ -10,20 +10,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-
-public class MainActivity extends AppCompatActivity {
+public class NewSession extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_new_session);
 
-        Button logSessionBtn = findViewById(R.id.newSessionButton);
-        logSessionBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, NewSession.class);
-            startActivity(intent);
-        });
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

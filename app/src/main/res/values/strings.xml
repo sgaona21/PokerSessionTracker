@@ -3,4 +3,6 @@
     <string name="newSessionButton">Log New Session</string>
     <string name="loggedSessionsButton">View Logged Sessions</string>
     <string name="statisticsButton">View Statistics</string>
+    <string name="cashGameButton">Cash Game</string>
+    <string name="tournamentButton">Tournament</string>
 </resources>
