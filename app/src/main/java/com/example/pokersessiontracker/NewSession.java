@@ -18,7 +18,7 @@ public class NewSession extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_new_session);
 
-
+        getSupportActionBar().setTitle("Log New Session");
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
