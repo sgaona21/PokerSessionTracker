@@ -10,6 +10,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Objects;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,12 +21,24 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setTitle("Poker Session Tracker");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Poker Session Tracker");
 
 
         Button logSessionBtn = findViewById(R.id.newSessionButton);
         logSessionBtn.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, NewSession.class);
+            startActivity(intent);
+        });
+
+        Button viewLoggedSessionsButton = findViewById(R.id.loggedSessionsButton);
+        viewLoggedSessionsButton.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, LoggedSessions.class);
+            startActivity(intent);
+        });
+
+        Button viewStatisticsButton = findViewById(R.id.statisticsButton);
+        viewStatisticsButton.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, Statistics.class);
             startActivity(intent);
         });
 

@@ -12,27 +12,16 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Objects;
 
-public class NewSession extends AppCompatActivity {
+public class LoggedSessions extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_new_session);
+        setContentView(R.layout.activity_logged_sessions);
 
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Log New Session");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Logged Sessions");
 
-        Button newCashGameButton = findViewById(R.id.newCashGameButton);
-        newCashGameButton.setOnClickListener(view -> {
-            Intent intent = new Intent(NewSession.this, CashGame.class);
-            startActivity(intent);
-        });
-
-        Button newTournamentButton = findViewById(R.id.newTournamentButton);
-        newTournamentButton.setOnClickListener(view -> {
-            Intent intent = new Intent(NewSession.this, Tournament.class);
-            startActivity(intent);
-        });
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

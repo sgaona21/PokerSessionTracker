@@ -13,4 +13,7 @@
     <string name="addCashGameButton">Add Cash Game</string>
     <string name="startTimeHint">Select Start Time</string>
     <string name="endTimeHint">Select End Time</string>
+    <string name="tournamentBuyInTV">Buy-In</string>
+    <string name="tournamentCashOutTV">Cash Out</string>
+    <string name="addTournamentButton">Add Tournament</string>
 </resources>
