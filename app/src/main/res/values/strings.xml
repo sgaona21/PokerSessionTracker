@@ -5,4 +5,12 @@
     <string name="statisticsButton">View Statistics</string>
     <string name="cashGameButton">Cash Game</string>
     <string name="tournamentButton">Tournament</string>
+    <string name="blindsTextView">Blinds</string>
+    <string name="buyInTextView">Buy-In</string>
+    <string name="cashOutTextView">Cash Out</string>
+    <string name="startTimeTextView">Start Time</string>
+    <string name="endTimeTextView">End Time</string>
+    <string name="addCashGameButton">Add Cash Game</string>
+    <string name="startTimeHint">Select Start Time</string>
+    <string name="endTimeHint">Select End Time</string>
 </resources>

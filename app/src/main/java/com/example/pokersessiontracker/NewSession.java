@@ -20,6 +20,13 @@ public class NewSession extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Log New Session");
 
+        Button newCashGameButton = findViewById(R.id.newCashGameButton);
+        newCashGameButton.setOnClickListener(view -> {
+            Intent intent = new Intent(NewSession.this, CashGame.class);
+            startActivity(intent);
+        });
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

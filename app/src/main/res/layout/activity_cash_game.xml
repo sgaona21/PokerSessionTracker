@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CashGame">
+
+    <LinearLayout
+        android:id="@+id/mainPageContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.8">
+
+        <TextView
+            android:id="@+id/blindsTextView"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/blindsTextView"
+            android:layout_marginTop="16dp"/>
+        <Spinner
+            android:id="@+id/blindsSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/buyInTextView"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/buyInTextView"
+            android:layout_marginTop="16dp"/>
+        <EditText
+            android:id="@+id/buyInInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/cashOutTextView"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/cashOutTextView"
+            android:layout_marginTop="16dp"/>
+        <EditText
+            android:id="@+id/cashOutInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/startTimeTV"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/startTimeTextView"
+            android:layout_marginTop="16dp"/>
+        <EditText
+            android:id="@+id/startTimeInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:hint="@string/startTimeHint"/>
+
+        <TextView
+            android:id="@+id/endTimeTV"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/endTimeTextView"
+            android:layout_marginTop="16dp"/>
+        <EditText
+            android:id="@+id/endTimeInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:hint="@string/endTimeHint"/>
+
+        <Button
+            android:id="@+id/addCashGameButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/addCashGameButton"
+            android:layout_marginTop="24dp" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

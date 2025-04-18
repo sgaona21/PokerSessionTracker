@@ -13,6 +13,9 @@
         android:theme="@style/Theme.PokerSessionTracker"
         tools:targetApi="31">
         <activity
+            android:name=".CashGame"
+            android:exported="false" />
+        <activity
             android:name=".NewSession"
             android:exported="false" />
         <activity
