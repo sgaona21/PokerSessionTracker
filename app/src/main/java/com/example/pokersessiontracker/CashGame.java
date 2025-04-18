@@ -5,8 +5,10 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,11 +21,18 @@ import java.util.Objects;
 
 public class CashGame extends AppCompatActivity {
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_cash_game);
+
+        Button addCashGameButton = findViewById(R.id.addCashGameButton);
+        EditText cashBuyInInput = findViewById(R.id.buyInInput);
+        EditText cashCashOutInput = findViewById(R.id.cashOutInput);
 
         Objects.requireNonNull(getSupportActionBar()).setTitle("Log New Cash Game");
 
@@ -42,7 +51,6 @@ public class CashGame extends AppCompatActivity {
         EditText startTimeInput = findViewById(R.id.startTimeInput);
         EditText endTimeInput = findViewById(R.id.endTimeInput);
 
-// Shared listener method
         View.OnClickListener timePickerListener = view -> {
             final Calendar calendar = Calendar.getInstance();
             int year = calendar.get(Calendar.YEAR);
@@ -79,5 +87,45 @@ public class CashGame extends AppCompatActivity {
 
         startTimeInput.setOnClickListener(timePickerListener);
         endTimeInput.setOnClickListener(timePickerListener);
+
+        addCashGameButton.setOnClickListener(view -> {
+            // Grab user input
+            String blinds = blindsSpinner.getSelectedItem().toString();
+            String buyInStr = cashBuyInInput.getText().toString();
+            String cashOutStr = cashCashOutInput.getText().toString();
+            String startTime = startTimeInput.getText().toString();
+            String endTime = endTimeInput.getText().toString();
+
+            // ✅ Validate (basic)
+            if (buyInStr.isEmpty() || cashOutStr.isEmpty() || startTime.isEmpty() || endTime.isEmpty()) {
+                Toast.makeText(CashGame.this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            int buyIn = Integer.parseInt(buyInStr);
+            int cashOut = Integer.parseInt(cashOutStr);
+
+            // ✅ Insert into DB
+            PokerSessionDatabase dbHelper = new PokerSessionDatabase(CashGame.this);
+            String today = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).format(Calendar.getInstance().getTime());
+            dbHelper.insertSession(
+                    "cash",
+                    blinds,
+                    buyIn,
+                    cashOut,
+                    startTime,
+                    endTime,
+                    today // No tournament date for cash games
+            );
+
+            // ✅ Confirm to user
+            Toast.makeText(CashGame.this, "Cash game session saved!", Toast.LENGTH_SHORT).show();
+
+            // Optional: clear form or go back
+            finish(); // Closes this activity
+        });
+
     }
+
+
 }
