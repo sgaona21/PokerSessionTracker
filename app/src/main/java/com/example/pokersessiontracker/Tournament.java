@@ -2,7 +2,9 @@ package com.example.pokersessiontracker;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +12,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.Objects;
 
 public class Tournament extends AppCompatActivity {
@@ -21,11 +25,18 @@ public class Tournament extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_tournament);
 
+        EditText nameInput = findViewById(R.id.tournNameInput);
+        EditText dateInput = findViewById(R.id.tournDateInput);
+        EditText buyInInput = findViewById(R.id.tournBuyInInput);
+        EditText cashOutInput = findViewById(R.id.tournCashOutInput);
+        Button addBtn = findViewById(R.id.addTournButton);
+
+
         Objects.requireNonNull(getSupportActionBar()).setTitle("Log New Tournament");
 
-        EditText tournDateInput = findViewById(R.id.tournDateInput);
+//        EditText tournDateInput = findViewById(R.id.tournDateInput);
 
-        tournDateInput.setOnClickListener(view -> {
+        dateInput.setOnClickListener(view -> {
             final Calendar calendar = Calendar.getInstance();
             int year = calendar.get(Calendar.YEAR);
             int month = calendar.get(Calendar.MONTH);
@@ -36,11 +47,44 @@ public class Tournament extends AppCompatActivity {
                     (view1, selectedYear, selectedMonth, selectedDay) -> {
                         // Format the date nicely
                         String dateStr = (selectedMonth + 1) + "/" + selectedDay + "/" + selectedYear;
-                        tournDateInput.setText(dateStr);
+                        dateInput.setText(dateStr);
                     },
                     year, month, day
             );
             datePickerDialog.show();
+        });
+
+
+
+        addBtn.setOnClickListener(view -> {
+            String name = nameInput.getText().toString();
+            String date = dateInput.getText().toString();
+            String buyInStr = buyInInput.getText().toString();
+            String cashOutStr = cashOutInput.getText().toString();
+
+            if (name.isEmpty() || date.isEmpty() || buyInStr.isEmpty() || cashOutStr.isEmpty()) {
+                Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            int buyIn = Integer.parseInt(buyInStr);
+            int cashOut = Integer.parseInt(cashOutStr);
+
+            PokerSessionDatabase dbHelper = new PokerSessionDatabase(this);
+            dbHelper.insertSession(
+                    "tournament",
+                    name,      // 👈 pass name
+                    null,      // no blinds
+                    buyIn,
+                    cashOut,
+                    null,      // no start
+                    null,      // no end
+                    date
+            );
+
+            Toast.makeText(this, "Tournament saved!", Toast.LENGTH_SHORT).show();
+            finish();
+
         });
 
 

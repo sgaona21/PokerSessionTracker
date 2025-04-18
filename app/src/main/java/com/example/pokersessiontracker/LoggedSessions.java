@@ -28,15 +28,20 @@ public class LoggedSessions extends AppCompatActivity {
         ListView sessionListView = findViewById(R.id.sessionListView);
 
         PokerSessionDatabase dbHelper = new PokerSessionDatabase(this);
-        ArrayList<String> sessionData = dbHelper.getAllSessions();
+//        ArrayList<String> sessionData = dbHelper.getAllSessions();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1,
-                sessionData
-        );
+//        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+//                this,
+//                android.R.layout.simple_list_item_1,
+//                sessionData
+//        );
+        ArrayList<SessionItem> sessionData = dbHelper.getAllSessions();
 
+        SessionAdapter adapter = new SessionAdapter(this, sessionData, dbHelper);
         sessionListView.setAdapter(adapter);
+
+
+
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

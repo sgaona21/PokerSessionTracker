@@ -110,6 +110,7 @@ public class CashGame extends AppCompatActivity {
             String today = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).format(Calendar.getInstance().getTime());
             dbHelper.insertSession(
                     "cash",
+                    null,
                     blinds,
                     buyIn,
                     cashOut,

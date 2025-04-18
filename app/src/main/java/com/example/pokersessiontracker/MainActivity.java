@@ -42,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        PokerSessionDatabase db = new PokerSessionDatabase(this);
+        db.insertDummySessions();
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
