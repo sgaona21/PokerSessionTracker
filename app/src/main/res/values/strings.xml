@@ -16,4 +16,8 @@
     <string name="tournamentBuyInTV">Buy-In</string>
     <string name="tournamentCashOutTV">Cash Out</string>
     <string name="addTournamentButton">Add Tournament</string>
+    <string name="tournNameTV">Name</string>
+    <string name="tournDate">Date</string>
+    <string name="tournDateHint">Select Date</string>
+    <string name="tournNameHint">example: \"WSOP Main Event\"</string>
 </resources>
