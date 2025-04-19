@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         tournamentCalendarButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-            intent.putExtra("url", "https://www.cardplayer.com/poker-tournaments");
+            intent.putExtra("url", "https://www.talkingstickresort.com/phoenix-scottsdale-casino/poker/arena-poker-room-tournaments/");
             startActivity(intent);
         });
 
