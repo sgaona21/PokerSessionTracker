@@ -29,4 +29,5 @@
     <string name="tournTotalProfit">Total Profit: $</string>
     <string name="totalROI">ROI: %</string>
     <string name="totalTournCashes">Total Cashes:</string>
+    <string name="deleteSession">Delete</string>
 </resources>
