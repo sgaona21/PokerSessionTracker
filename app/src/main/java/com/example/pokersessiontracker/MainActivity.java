@@ -1,18 +1,17 @@
+// Steven Gaona, CIS165DA 20747, STE2342585 //
+
 package com.example.pokersessiontracker;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import java.util.Objects;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).setTitle("Poker Session Tracker");
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-
-
 
         Button logSessionBtn = findViewById(R.id.newSessionButton);
         logSessionBtn.setOnClickListener(view -> {
@@ -55,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("url", "https://www.talkingstickresort.com/phoenix-scottsdale-casino/poker/arena-poker-room-tournaments/");
             startActivity(intent);
         });
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

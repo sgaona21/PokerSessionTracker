@@ -1,3 +1,5 @@
+// Steven Gaona, CIS165DA 20747, STE2342585 //
+
 package com.example.pokersessiontracker;
 
 import android.app.DatePickerDialog;
@@ -9,20 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.Objects;
 
-
 public class CashGame extends AppCompatActivity {
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,14 +85,12 @@ public class CashGame extends AppCompatActivity {
         endTimeInput.setOnClickListener(timePickerListener);
 
         addCashGameButton.setOnClickListener(view -> {
-            // Grab user input
             String blinds = blindsSpinner.getSelectedItem().toString();
             String buyInStr = cashBuyInInput.getText().toString();
             String cashOutStr = cashCashOutInput.getText().toString();
             String startTime = startTimeInput.getText().toString();
             String endTime = endTimeInput.getText().toString();
 
-            // ✅ Validate (basic)
             if (buyInStr.isEmpty() || cashOutStr.isEmpty() || startTime.isEmpty() || endTime.isEmpty()) {
                 Toast.makeText(CashGame.this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
                 return;
@@ -105,7 +99,6 @@ public class CashGame extends AppCompatActivity {
             int buyIn = Integer.parseInt(buyInStr);
             int cashOut = Integer.parseInt(cashOutStr);
 
-            // ✅ Insert into DB
             PokerSessionDatabase dbHelper = new PokerSessionDatabase(CashGame.this);
             String today = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).format(Calendar.getInstance().getTime());
             dbHelper.insertSession(
@@ -116,17 +109,10 @@ public class CashGame extends AppCompatActivity {
                     cashOut,
                     startTime,
                     endTime,
-                    today // No tournament date for cash games
+                    today
             );
-
-            // ✅ Confirm to user
             Toast.makeText(CashGame.this, "Cash game session saved!", Toast.LENGTH_SHORT).show();
-
-            // Optional: clear form or go back
-            finish(); // Closes this activity
+            finish();
         });
-
     }
-
-
 }
