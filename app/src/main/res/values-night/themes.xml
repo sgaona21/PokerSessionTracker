@@ -4,7 +4,7 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
         <item name="colorPrimary">@color/aquaMint</item>
-        <item name="colorOnPrimary">@android:color/black</item> <!-- button text color -->
+        <item name="colorOnPrimary">@android:color/black</item>
 
     </style>
 </resources>
