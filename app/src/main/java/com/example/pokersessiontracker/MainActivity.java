@@ -45,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
         PokerSessionDatabase db = new PokerSessionDatabase(this);
         db.insertDummySessions();
 
+        Button tournamentCalendarButton = findViewById(R.id.tournamentCalendarButton);
+
+        tournamentCalendarButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+            intent.putExtra("url", "https://www.cardplayer.com/poker-tournaments");
+            startActivity(intent);
+        });
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
