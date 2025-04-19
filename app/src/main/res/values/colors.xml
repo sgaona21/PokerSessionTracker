@@ -3,5 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="aquaMint">#7FFFD4</color> <!-- Aquamarine -->
+    <color name="pokerGreen">#4CAF50</color> <!-- This is a medium, classic Material green -->
+
+
 
 </resources>

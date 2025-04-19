@@ -17,19 +17,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_percent="0.5"
+
         >
 
     <Button
         android:id="@+id/newSessionButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/newSessionButton" />
+        android:text="@string/newSessionButton"
+        android:textSize="16sp"
+        />
 
     <Button
         android:id="@+id/loggedSessionsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/loggedSessionsButton"
+        android:textSize="16sp"
         android:layout_marginTop="20dp"/>
 
     <Button
@@ -37,13 +41,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/statisticsButton"
+        android:textSize="16sp"
         android:layout_marginTop="20dp"/>
 
         <Button
             android:id="@+id/tournamentCalendarButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="View Upcoming Tournaments"
+            android:text="Local Tournaments"
+            android:textSize="16sp"
             android:layout_marginTop="20dp"/>
 
 
