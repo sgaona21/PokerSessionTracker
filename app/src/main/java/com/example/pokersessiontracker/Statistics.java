@@ -1,3 +1,5 @@
+// Steven Gaona, CIS165DA 20747, STE2342585 //
+
 package com.example.pokersessiontracker;
 
 import android.os.Bundle;
@@ -5,13 +7,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import java.util.Objects;
 
 public class Statistics extends AppCompatActivity {
@@ -41,21 +41,14 @@ public class Statistics extends AppCompatActivity {
 
         PokerSessionDatabase db = new PokerSessionDatabase(this);
 
-// Cash stats
         StatsResult cashStats = db.getCashStats();
         ((TextView) findViewById(R.id.cashProfit)).setText("Total Profit: $" + cashStats.totalProfit);
         ((TextView) findViewById(R.id.cashWins)).setText("Winning Sessions: " + cashStats.winsOrCashes);
         ((TextView) findViewById(R.id.cashLosses)).setText("Losing Sessions: " + cashStats.lossesOrROI);
 
-// Tournament stats
         StatsResult tournStats = db.getTournamentStats();
         ((TextView) findViewById(R.id.tournProfit)).setText("Total Profit: $" + tournStats.totalProfit);
         ((TextView) findViewById(R.id.tournROI)).setText("ROI: " + tournStats.lossesOrROI + "%");
         ((TextView) findViewById(R.id.tournCashes)).setText("Total Cashes: " + tournStats.winsOrCashes);
-
-
-
-
-
     }
 }

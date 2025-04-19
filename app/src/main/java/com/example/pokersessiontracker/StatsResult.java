@@ -1,3 +1,5 @@
+// Steven Gaona, CIS165DA 20747, STE2342585 //
+
 package com.example.pokersessiontracker;
 
 public class StatsResult {

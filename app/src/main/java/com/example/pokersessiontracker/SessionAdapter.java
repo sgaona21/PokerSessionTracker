@@ -1,3 +1,5 @@
+// Steven Gaona, CIS165DA 20747, STE2342585 //
+
 package com.example.pokersessiontracker;
 
 import android.content.Context;
@@ -7,11 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 public class SessionAdapter extends ArrayAdapter<SessionItem> {
-
     private final PokerSessionDatabase db;
     private final ArrayList<SessionItem> sessionList;
 
@@ -39,7 +39,6 @@ public class SessionAdapter extends ArrayAdapter<SessionItem> {
             sessionList.remove(position);
             notifyDataSetChanged();
         });
-
         return convertView;
     }
 }

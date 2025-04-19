@@ -1,3 +1,5 @@
+// Steven Gaona, CIS165DA 20747, STE2342585 //
+
 package com.example.pokersessiontracker;
 
 import android.app.DatePickerDialog;
@@ -5,13 +7,11 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -31,10 +31,7 @@ public class Tournament extends AppCompatActivity {
         EditText cashOutInput = findViewById(R.id.tournCashOutInput);
         Button addBtn = findViewById(R.id.addTournButton);
 
-
         Objects.requireNonNull(getSupportActionBar()).setTitle("Log New Tournament");
-
-//        EditText tournDateInput = findViewById(R.id.tournDateInput);
 
         dateInput.setOnClickListener(view -> {
             final Calendar calendar = Calendar.getInstance();
@@ -45,7 +42,6 @@ public class Tournament extends AppCompatActivity {
             DatePickerDialog datePickerDialog = new DatePickerDialog(
                     Tournament.this,
                     (view1, selectedYear, selectedMonth, selectedDay) -> {
-                        // Format the date nicely
                         String dateStr = (selectedMonth + 1) + "/" + selectedDay + "/" + selectedYear;
                         dateInput.setText(dateStr);
                     },
@@ -53,8 +49,6 @@ public class Tournament extends AppCompatActivity {
             );
             datePickerDialog.show();
         });
-
-
 
         addBtn.setOnClickListener(view -> {
             String name = nameInput.getText().toString();
@@ -73,12 +67,12 @@ public class Tournament extends AppCompatActivity {
             PokerSessionDatabase dbHelper = new PokerSessionDatabase(this);
             dbHelper.insertSession(
                     "tournament",
-                    name,      // 👈 pass name
-                    null,      // no blinds
+                    name,
+                    null,
                     buyIn,
                     cashOut,
-                    null,      // no start
-                    null,      // no end
+                    null,
+                    null,
                     date
             );
 
@@ -86,7 +80,6 @@ public class Tournament extends AppCompatActivity {
             finish();
 
         });
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
