@@ -34,7 +34,7 @@ public class PokerSessionDatabase extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO sessions (type, blinds, buy_in, cash_out, start_time, end_time, date) " +
                 "VALUES ('cash', '1 / 2', 200, 800, '04/16/2025', '6:00 PM', '04/16/2025');");
 
-        db.execSQL("INSERT INTO sessions (type, blinds, buy_in, cash_out, start_time, end_time, date) " +
+        db.execSQL("INSERT INTO sessions (type, name, blinds, buy_in, cash_out, start_time, end_time, date) " +
                 "VALUES ('tournament', NULL, 150, 500, NULL, NULL, '04/16/2025');");
     }
 
