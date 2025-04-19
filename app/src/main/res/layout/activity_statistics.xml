@@ -1,10 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Statistics">
+    android:layout_marginTop="100dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Toggle group for Cash/Tournament -->
+    <RadioGroup
+        android:id="@+id/statToggleGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <RadioButton
+            android:id="@+id/cashToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cash"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/tournToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tournament"
+            android:layout_marginStart="16dp"/>
+    </RadioGroup>
+
+    <!-- Cash Stats -->
+    <LinearLayout
+        android:id="@+id/cashStatsLayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp">
+
+        <TextView
+            android:id="@+id/cashProfit"
+            android:text="Total Profit: $"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/cashWins"
+            android:text="Winning Sessions: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/cashLosses"
+            android:text="Losing Sessions: "
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+    </LinearLayout>
+
+    <!-- Tournament Stats -->
+    <LinearLayout
+        android:id="@+id/tournStatsLayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tournProfit"
+            android:text="Total Profit: $"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tournROI"
+            android:text="ROI: %"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tournCashes"
+            android:text="Total Cashes: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</LinearLayout>

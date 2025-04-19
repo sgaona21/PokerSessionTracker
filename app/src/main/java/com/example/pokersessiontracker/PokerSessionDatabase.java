@@ -180,6 +180,65 @@ public ArrayList<SessionItem> getAllSessions() {
 
     }
 
+    public StatsResult getCashStats() {
+        int totalProfit = 0;
+        int wins = 0;
+        int losses = 0;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT buy_in, cash_out FROM sessions WHERE type = 'cash'", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int buyIn = cursor.getInt(cursor.getColumnIndexOrThrow("buy_in"));
+                int cashOut = cursor.getInt(cursor.getColumnIndexOrThrow("cash_out"));
+                int profit = cashOut - buyIn;
+                totalProfit += profit;
+
+                if (profit >= 0) {
+                    wins++;
+                } else {
+                    losses++;
+                }
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return new StatsResult(totalProfit, wins, losses);
+    }
+
+    public StatsResult getTournamentStats() {
+        int totalProfit = 0;
+        int totalBuyIn = 0;
+        int cashes = 0;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT buy_in, cash_out FROM sessions WHERE type = 'tournament'", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int buyIn = cursor.getInt(cursor.getColumnIndexOrThrow("buy_in"));
+                int cashOut = cursor.getInt(cursor.getColumnIndexOrThrow("cash_out"));
+                int profit = cashOut - buyIn;
+
+                totalProfit += profit;
+                totalBuyIn += buyIn;
+
+                if (cashOut > buyIn) {
+                    cashes++;
+                }
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+
+        // ROI = ((totalProfit) / totalBuyIn) * 100
+        int roi = totalBuyIn > 0 ? (totalProfit * 100 / totalBuyIn) : 0;
+
+        return new StatsResult(totalProfit, cashes, roi);
+    }
+
+
 
 
 
