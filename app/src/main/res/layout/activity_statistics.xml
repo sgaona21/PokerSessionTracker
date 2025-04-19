@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--    Steven Gaona, CIS165DA 20747, STE2342585-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:padding="24dp"
@@ -6,7 +7,6 @@
     android:layout_height="match_parent"
     android:layout_marginTop="100dp">
 
-    <!-- Toggle group for Cash/Tournament -->
     <RadioGroup
         android:id="@+id/statToggleGroup"
         android:layout_width="match_parent"
@@ -18,18 +18,19 @@
             android:id="@+id/cashToggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cash"
+            android:text="@string/cashOption"
+            android:textSize="24sp"
             android:checked="true" />
 
         <RadioButton
             android:id="@+id/tournToggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tournament"
+            android:text="@string/tournOption"
+            android:textSize="24sp"
             android:layout_marginStart="16dp"/>
     </RadioGroup>
 
-    <!-- Cash Stats -->
     <LinearLayout
         android:id="@+id/cashStatsLayout"
         android:orientation="vertical"
@@ -39,25 +40,27 @@
 
         <TextView
             android:id="@+id/cashProfit"
-            android:text="Total Profit: $"
+            android:text="@string/totalCashProfit"
+            android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/cashWins"
-            android:text="Winning Sessions: "
+            android:text="@string/cashWinSessions"
+            android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/cashLosses"
-            android:text="Losing Sessions: "
+            android:text="@string/cashLosses"
+            android:textSize="20sp"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"/>
 
     </LinearLayout>
 
-    <!-- Tournament Stats -->
     <LinearLayout
         android:id="@+id/tournStatsLayout"
         android:orientation="vertical"
@@ -68,19 +71,22 @@
 
         <TextView
             android:id="@+id/tournProfit"
-            android:text="Total Profit: $"
+            android:text="@string/tournTotalProfit"
+            android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/tournROI"
-            android:text="ROI: %"
+            android:text="@string/totalROI"
+            android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/tournCashes"
-            android:text="Total Cashes: "
+            android:text="@string/totalTournCashes"
+            android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

@@ -20,4 +20,13 @@
     <string name="tournDate">Date</string>
     <string name="tournDateHint">Select Date</string>
     <string name="tournNameHint">example: \"WSOP Main Event\"</string>
+    <string name="localTournButton">Local Tournaments</string>
+    <string name="cashOption">Cash</string>
+    <string name="tournOption">Tournament</string>
+    <string name="totalCashProfit">Total Profit: $</string>
+    <string name="cashWinSessions">Winning Sessions:</string>
+    <string name="cashLosses">Losing Sessions:</string>
+    <string name="tournTotalProfit">Total Profit: $</string>
+    <string name="totalROI">ROI: %</string>
+    <string name="totalTournCashes">Total Cashes:</string>
 </resources>
