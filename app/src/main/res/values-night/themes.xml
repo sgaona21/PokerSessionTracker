@@ -6,7 +6,6 @@
         <item name="colorPrimary">@color/aquaMint</item>
         <item name="colorOnPrimary">@android:color/black</item> <!-- button text color -->
 
-
     </style>
 </resources>
 
